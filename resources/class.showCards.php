@@ -52,7 +52,7 @@ class showCards {
 		
 		  $this->count_cards = count($cards);
 		  $this->cards = $cards;
-		  $this->count_style = 0;
+		  $this->count_style = 1;
 		  $this->start_count = 0;
 		  }
 		
@@ -78,7 +78,7 @@ class showCards {
   /* Separate data into individual pieces */
 		for ($c = 0; $c < $this->count_cards; $c++) {
 			$single_card = $this->cards[$c];
-			if ($this->count_style > 6) { $this->count_style = 0; }
+			if ($this->count_style > 7) { $this->count_style = 1; }
 			$this->formatOverview($single_card);
 			$this->count_style++; }
 	}
