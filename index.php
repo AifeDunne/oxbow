@@ -14,11 +14,8 @@
 		  <!-- Start Card Output -->
 			<?php 
 				require_once('resources/class.showCards.php');
-				$showCards = new showCards("loop");
-				$showCards->displayCards();
-				
-				// Array merge is unnecessary and isn't needed for the desired result.
-				// $cards = array_merge($cards, $cards);
+				$showCards = new showCards();
+				$showCards->displayCards("loop");
 			?>
 		  <!-- End Card Output -->
 
