@@ -2,9 +2,7 @@
 if (isset($_GET['page']) === true) {
 $page = $_GET['page'];
 $page = intval($page);
-
 /* I originally configured this file to be able to show single items but I removed the functionality to be more in line with the prompt. I ended up not using it for anything. */
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,8 +17,8 @@ $page = intval($page);
 <div id="design">
   <?php
   require_once('resources/class.showCards.php');
-  $showCards = new showCards($page);
-  $showCards->displayCards();
+  $showCards = new showCards();
+  $showCards->displayCards($page);
   ?>
 </div>
 </body>
