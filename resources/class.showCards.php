@@ -74,21 +74,15 @@ class showCards {
 				   </div>';
 	echo $endResult; }
 	
-	private function extractData($key1,$key2) {
+	private function displayCards() {
   /* Separate data into individual pieces */
-		for ($c = $key1; $c < $key2; $c++) {
+  $this->style = array("tile1", "tile2", "tile3", "tile4", "tile3", "tile5","tile6");
+		for ($c = 0; $c < $this->count_cards; $c++) {
 			$single_card = $this->cards[$c];
 			if ($this->count_style > 6) { $this->count_style = 0; }
 			$style = $this->style[$this->count_style];
 			$this->formatOverview($single_card,$c,$style);
 			$this->count_style++; }
 	}
-		
-	public function displayCards($type) {
-  /* Display posts or post */
-  $this->type = $type;
-	if ($type !== "loop") { $switchKey = intval($type); $startKey = $switchKey - 1; $this->style = array("","","","","","",""); }
-	else { $startKey = 0; $switchKey = $this->count_cards; $this->style = array("tile1", "tile2", "tile3", "tile4", "tile3", "tile5","tile6"); }
-		$this->extractData($startKey,$switchKey); }
 }
 ?>
