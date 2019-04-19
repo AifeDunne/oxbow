@@ -15,7 +15,7 @@
 			<?php 
 				require_once('resources/class.showCards.php');
 				$showCards = new showCards();
-				$showCards->displayCards("loop");
+				$showCards->displayCards();
 			?>
 		  <!-- End Card Output -->
 
