@@ -45,11 +45,11 @@ class showCards {
 			'img' => 'http://imageipsum.com/1207x300',
 			'url' => 'https://www.google.com',
 		  ]]; 
+		  
 		  // Duplicate the array
           $more_cards = array_slice($cards, 3);
 		  $cards = array_merge($cards, $more_cards);
 		
-		  $this->type = $type;
 		  $this->count_cards = count($cards);
 		  $this->cards = $cards;
 		  $this->count_style = 0;
@@ -62,7 +62,7 @@ class showCards {
 	$body = $single_card['body'];
 	$img = $single_card['img'];
 	$url = $single_card['url'];
-	$endResult = '<div class="card" style="'.$style.'">
+	$endResult = '<div class="card '.$style.'">
 					<div class="card-header"><img src="'.$img.'" /></div>
 					<div class="card-body">
 						<p class="card-title" href="design.php?page='.$link.'">'.$title.'</p>
@@ -80,15 +80,15 @@ class showCards {
 			$single_card = $this->cards[$c];
 			if ($this->count_style > 6) { $this->count_style = 0; }
 			$style = $this->style[$this->count_style];
-			$this->formatOverview($single_card,$c,$style); 
+			$this->formatOverview($single_card,$c,$style);
 			$this->count_style++; }
 	}
 		
-	public function displayCards() {
+	public function displayCards($type) {
   /* Display posts or post */
-	if ($this->type !== "loop") { $switchKey = intval($this->type); $startKey = $switchKey - 1; $this->style = array("","","","","","",""); }
-	else { $startKey = 0; $switchKey = $this->count_cards; $this->style = array("","","","","","",""); $this->style = array("width:66%; margin-right:1%;", "width:32%; margin-left:1%;", "width:32%;", "width:32%; margin-left:2%; margin-right:2%;", "width:32%;", "width:32%; margin-right:1%;","width:66%; margin-left:1%;");}
-		$this->extractData($startKey,$switchKey);
-	}
+  $this->type = $type;
+	if ($type !== "loop") { $switchKey = intval($type); $startKey = $switchKey - 1; $this->style = array("","","","","","",""); }
+	else { $startKey = 0; $switchKey = $this->count_cards; $this->style = array("tile1", "tile2", "tile3", "tile4", "tile3", "tile5","tile6"); }
+		$this->extractData($startKey,$switchKey); }
 }
 ?>
