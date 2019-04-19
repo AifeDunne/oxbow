@@ -56,16 +56,16 @@ class showCards {
 		  $this->start_count = 0;
 		  }
 		
-	private function formatOverview($single_card,$link,$style) {
+	private function formatOverview($single_card) {
   /* Format data into html */
 	$title = $single_card['title'];
 	$body = $single_card['body'];
 	$img = $single_card['img'];
 	$url = $single_card['url'];
-	$endResult = '<div class="card '.$style.'">
+	$endResult = '<div class="card tile'.$this->count_style.'">
 					<div class="card-header"><img src="'.$img.'" /></div>
 					<div class="card-body">
-						<p class="card-title" href="design.php?page='.$link.'">'.$title.'</p>
+						<p class="card-title">'.$title.'</p>
 						<p class="card-content">'.$body.'</p>
 					</div>
 					<div class="card-footer">
@@ -76,12 +76,10 @@ class showCards {
 	
 	private function displayCards() {
   /* Separate data into individual pieces */
-  $this->style = array("tile1", "tile2", "tile3", "tile4", "tile3", "tile5","tile6");
 		for ($c = 0; $c < $this->count_cards; $c++) {
 			$single_card = $this->cards[$c];
 			if ($this->count_style > 6) { $this->count_style = 0; }
-			$style = $this->style[$this->count_style];
-			$this->formatOverview($single_card,$c,$style);
+			$this->formatOverview($single_card);
 			$this->count_style++; }
 	}
 }
